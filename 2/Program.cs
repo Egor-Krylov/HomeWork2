@@ -8,7 +8,15 @@
 
 
 Console.Write("Введите число: ");
-string number = Console.ReadLine();
+int number = Convert.ToInt32(Console.ReadLine());
+int digitPower = 1;
+int thirdDigit = 0;
 
-if (number.Length < 3) Console.WriteLine("Нет третьей цифры");
-else Console.Write(number[2]);
+while (number / digitPower != 0) digitPower *= 10;
+
+if (digitPower <= 100) Console.WriteLine("нет третьей цифры");
+else
+{
+    thirdDigit = number / (digitPower / 1000) % 10;
+    Console.WriteLine("третья цифра: " + thirdDigit);
+}
